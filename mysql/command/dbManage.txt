@@ -1,0 +1,23 @@
+CREATE DATABASE `cs_mobile` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+TRUNCATE TABLE `sms_mobile_s`;
+
+
+RENAME TABLE `ganwan_main`.`gwm_member` TO `ganwan_main`.`gwm_member1119`;
+CREATE TABLE `gwm_categorybak` SELECT * FROM `gwm_category` WHERE 1 = 2;
+CREATE TABLE `gwm_categorybak` AS SELECT * FROM `gwm_category` WHERE 1 = 2;
+
+
+ALTER TABLE `web_spread`.`ws_record` ADD INDEX `statistic` (`day`, `hour`, `channel_code`, `webgame_code` , `serverid` );
+ALTER TABLE `ganwan_main`.`gwm_content` 
+	ADD `flash_id` INT( 8 ) NOT NULL AFTER `spider_status`,
+	ADD `filesize` VARCHAR( 20 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `flash_id`,
+	ADD `rate` FLOAT NOT NULL AFTER `listorder` COMMENT '平台费率',
+	ADD `money_valid_middle` DOUBLE( 10, 2 ) NOT NULL AFTER `money`,
+	ADD `three_mark` TINYINT( 1 ) NOT NULL AFTER `pay_money`,
+	ADD `resource_id` SMALLINT( 5 ) UNSIGNED NOT NULL AFTER `sort_id`,
+	ADD `channel_code` CHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `idcard`;
+
+ALTER TABLE `web_passport`.`web_members`
+  DROP `active`,
+  DROP `active_7`,
+  DROP `active_over`;
