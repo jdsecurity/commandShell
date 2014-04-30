@@ -3,6 +3,7 @@
 
 # install 5.5+ version
 wget http://www.cmake.org/files/v2.8/cmake-2.8.11.2.tar.gz
+wget http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.13.tar.gz/from/http://cdn.mysql.com/
 
 tar zxvf /opt/sourcepackage/cmake* -C /opt/source
 cd /opt/source/cmake*
