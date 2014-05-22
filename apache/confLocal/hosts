@@ -3,11 +3,13 @@
 127.0.0.1	www.frame.com
 127.0.0.1	blog.frame.com
 127.0.0.1	docs.frame.com
+127.0.0.1	test.frame.com
+127.0.0.1	mumu.frame.com
 
-127.0.0.1	lightzf2.zf2.frame.com
+127.0.0.1	light.zf2.frame.com
 127.0.0.1	demo.front.frame.com
 127.0.0.1	www.zf2.frame.com
-127.0.0.1	demo.frame.frame.com
+127.0.0.1	demo.light.frame.com
 
 127.0.0.1	acanstudio.node.frame.com
 127.0.0.1	test.node.frame.com
@@ -23,6 +25,7 @@
 127.0.0.1	movie.cinew.com
 127.0.0.1	travel.cinew.com
 127.0.0.1	luxury.cinew.com
+127.0.0.1	mumu.cinew.com
 
 127.0.0.1	passport.ci.com
 127.0.0.1	pay.ci.com
