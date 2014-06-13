@@ -28,18 +28,11 @@
 127.0.0.1	filesys.cinew.com
 
 127.0.0.1	passport.ci.com
+127.0.0.1	jzmedia.ci.com
 127.0.0.1	pay.ci.com
-127.0.0.1	spider.ci.com
-127.0.0.1	webgame.ci.com
-127.0.0.1	nova.ci.com
-127.0.0.1	seer.ci.com
-127.0.0.1	shenxd.ci.com
-127.0.0.1	kidsedu.ci.com
-127.0.0.1	juvenile.ci.com
 127.0.0.1	upload.ci.com
 127.0.0.1	static.ci.com
 127.0.0.1	ucserver.ci.com
-127.0.0.1	bbs.ci.com
 
 192.168.0.121 passport.nova.com
 192.168.0.121 pay.nova.com
