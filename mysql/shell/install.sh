@@ -30,7 +30,8 @@ cmake . \
   -DWITH_DEBUG=0 
 make && make install
 
-/opt/soft/mysql/scripts/mysql_install_db --user=mysql --datadir=/var/slog/mysql/data/
+cd /opt/soft/mysql
+./scripts/mysql_install_db --user=mysql --datadir=/var/slog/mysql/data/
 /opt/source/mysql/bin/mysqladmin -uroot password 'new-password'
 /opt/source/mysql/bin/mysqladmin -uroot -p password '你的新密码'
 /opt/source/mysql/bin/mysqladmin -uroot password oldpass "newpass"
