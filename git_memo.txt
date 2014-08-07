@@ -1,0 +1,5 @@
+https://github.com/dodgepudding/wechat-php-sdk # PHP版微信平台接口
+https://github.com/filp/whoops                 # PHP调试工具
+
+https://github.com/silexphp/Silex              # 基于Symfony2 的轻量级PHP框架
+https://github.com/silexphp/Silex-Skeleton     # Silex Demo

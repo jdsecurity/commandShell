@@ -29,10 +29,12 @@
 
 127.0.0.1	passport.ci.com
 127.0.0.1	jzmedia.ci.com
+127.0.0.1	luxury.ci.com
 127.0.0.1	pay.ci.com
 127.0.0.1	upload.ci.com
 127.0.0.1	static.ci.com
 127.0.0.1	ucserver.ci.com
+127.0.0.1	statistic.ci.com
 
 192.168.0.121 passport.nova.com
 192.168.0.121 pay.nova.com
