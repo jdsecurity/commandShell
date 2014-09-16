@@ -1,0 +1,14 @@
+proxy_cach zone_name; 
+	#default: None, env:http server location,
+proxy_cache_path path [levels=number] keys_zone=zone_name:zone_size [inactive=time] [max_size]; 
+	#default: None, env: http, example: proxy_cache_path /data0/proxy_cache_dir levels=1:2 keys_zone=cache_one:500m inactive=1d max_size=30g;
+proxy_cache_methods [GET HEAD POST];
+	#default: proxy_cache_methods GET HEAD; env: http server location,
+proxy_cache_min_uses the_number;
+	#default: proxy_cache_min_users 1; env: http server location,
+proxy_cache+_valid reply_code [reply_code ...] time;
+	#default: None, env: http server location, example: 
+	#proxy_cache_valid 200 302 10m; proxy_cache_valid 404 1m;proxy_cache_valid 5m; (200 301 302); proxy_cache_valid 200 302 10m;proxy_cache_valid 301 1h; proxy_cahce_valid any 1m;
+proxy_cache_key line;
+	#default None, env: http server location, example: proxy_cache_key "$host:$server_port$uri$is_args$args";
+

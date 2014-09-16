@@ -1,0 +1,142 @@
+server
+{
+    listen 80;
+    server_name bbs.ganwan.com;
+#rewrite ^/(.*)$ http://bbs.ty366.com/$1 permanent;
+    root /var/htmlwww/bbs;
+    
+    include common.conf;
+    access_log /var/slog/nginx/logs/bbs.ganwan.com_access.log main;
+}
+
+server
+{
+    listen 80;
+    server_name www.ganwan.com;
+#rewrite ^/(.*)$ http://www.ty366.com/$1 permanent;
+    location / {
+        error_page 405 =200 /;
+    }
+
+    root /var/htmlwww/gwmain;
+
+    error_page 404 /404.html;
+    location /404.html {
+        root /var/htmlwww/gwmain;
+    }
+
+    location ~* ^/(data|flash|news|tuku|2012|uploadfile|templates)/.*\.(php|php5)$
+    {
+        deny all;
+    }
+
+#    location ~* ^/(pay|web)/.*$
+#    {
+#rewrite "^/(.*)$" http://www.ganwan.com/ permanent;
+#    }
+
+    #rewrite "^/(.*)$" http://weihu.yrclub.com.cn/ permanent;
+    include common.conf;
+    access_log /var/slog/nginx/logs/www.ganwan.com_access.log main;
+}
+
+server
+{
+    listen 80;
+    server_name flash.ganwan.com;
+ # rewrite ^/(.*)$ http://flash.ty366.com/$1 permanent; 
+    location / {
+        error_page 405 =200 /lmyy/;
+    }
+ 
+    #location ~* /*html$ { 
+    #    root /var/htmlwww/gwmain/flash/;
+    #    error_page 405 =200 http://flash.ganwan.com/$request_uri;
+    #}
+
+#    location ~* /*shtml$ {
+#        root /var/htmlwww/gwmain/flash/;
+#        error_page 404 =200 http://flash.ganwan.com/$request_uri;
+#    }
+
+    root /var/htmlwww/gwmain/flash/;
+#    error_page 405 =200 @405;
+#    location @405 {
+#        root /var/htmlwww/gwmain/flash/;
+#        proxy_method GET;
+#        proxy_pass http://staticbackend;
+#    }
+
+
+#    include common.conf;
+    access_log /var/slog/nginx/logs/flash.ganwan.com_access.log main;
+}
+
+server
+{
+    listen 80;
+    server_name web.ganwan.com;
+#rewrite ^/(.*)$ http://web.ty366.com/$1 permanent;
+    root /var/htmlwww/gwmain/web;
+#rewrite "^/(.*)$" http://www.ganwan.com/ permanent;
+    location  /shanke/
+    {
+	rewrite "^/(.*)$" http://web.ganwan.com/sk/ permanent;
+    }
+
+    include common.conf;
+    access_log /var/slog/nginx/logs/web.ganwan.com_access.log main;
+}
+
+server
+{
+    listen 80;
+    server_name pay.ganwan.com;
+    root /var/htmlwww/gwmain/pay;
+rewrite "^/(.*)$" http://www.ganwan.com/ permanent;
+    include common.conf;
+    access_log /var/slog/nginx/logs/pay.ganwan.com_access.log main;
+}
+
+server
+{
+    listen 80;
+    server_name news.ganwan.com;
+#rewrite ^/(.*)$ http://news.ty366.com/$1 permanent;
+    root /var/htmlwww/gwmain/news;
+
+    #include common.conf;
+    access_log /var/slog/nginx/logs/news.ganwan.com_access.log main;
+}
+
+server
+{
+    listen 80;
+    server_name tu.ganwan.com;
+    root /var/htmlwww/gwmain/tuku;
+
+    #include common.conf;
+    access_log /var/slog/nginx/logs/tu.ganwan.com_access.log main;
+}
+
+server
+{
+    listen 80;
+    server_name iphone.ganwan.com;
+#rewrite ^/(.*)$ http://iphone.ty366.com/$1 permanent;
+    root /var/htmlwww/gwmain/iphone;
+
+    #include common.conf;
+    access_log /var/slog/nginx/logs/iphone.ganwan.com_access.log main;
+}
+
+server
+{
+    listen 80;
+    server_name manhua.ganwan.com;
+#rewrite ^/(.*)$ http://manhua.ty366.com/$1 permanent;
+    root /var/htmlwww/gwmain/xtdm;
+
+    #include common.conf;
+    access_log /var/slog/nginx/logs/manhua.ganwan.com_access.log main;
+}

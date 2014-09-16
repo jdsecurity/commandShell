@@ -1,0 +1,4 @@
+uploadfile/pic/
+uploadfile/file/
+uploadfile/flash/
+uploadfile/minfo/

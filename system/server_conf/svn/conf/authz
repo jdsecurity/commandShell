@@ -1,0 +1,50 @@
+[groups]
+phpgroup=wangcanliang,songjisui,liuchengliang
+admin=wangcanliang,websvn
+ganwanpro=wangcanliang,songjisui,liuchengliang
+frontuser=lichong,liujianqiao
+mobilegroup=liujingli
+webtech=lichong,liujianqiao,hanshaobo,chengnina
+
+[/]
+@admin = rw
+
+[gwmain:/]
+@phpgroup = rw
+@admin = rw
+* =
+
+[ganwanpro:/]
+@admin = rw
+@ganwanpro = rw
+* =
+
+[frontdata:/]
+@phpgroup = rw
+@admin = rw
+@frontuser = rw
+
+[webfront:/]
+@phpgroup = r
+@admin = rw
+@frontuser = rw
+
+[mobilepro:/]
+@admin = rw
+@mobilegroup = rw
+* = 
+
+[websource:/]
+@webtech = rw
+@admin = rw
+@phpgroup = r
+* =
+
+[server:/]
+@admin =rw
+* = 
+
+[liuchengliang:/]
+liuchengliang = rw
+@admin = rw
+* =

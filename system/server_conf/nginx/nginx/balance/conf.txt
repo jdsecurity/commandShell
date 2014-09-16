@@ -1,0 +1,127 @@
+user www www;
+worker_processes 10;
+
+error_log /data1/logs/nginx_error.log crit;
+pid /var/log/nginx/nginx.pid;
+worker_rlimit_nofile 51200;
+
+events
+{
+    use epoll;
+    worker_connections 51200;
+}
+
+http
+{
+    include mime.types;
+    default_type application/octet-stream;
+
+    charset utf-8;
+
+    server_names_hash_bucket_size 128;
+    client_header_buffer_size 32k;
+    large_client_header_buffers 4 32k;
+
+    sendfile on;
+    tcp_nopush on;
+
+    keepalive_timeout 65;
+
+    tcp_nodelay on;
+
+    fastcgi_connect_timeout 300;
+    fastcgi_send_timeout 300;
+    fastcgi_read_timeout 300;
+    fastcgi_buffer_size 64k;
+    fastcgi_buffers 4 64k;
+    fastcgi_busy_buffers_size 128k;
+    fastcgi_temp_file_write_size 128k;
+
+    gzip on;
+    gzip_min_length 1k;
+    gzip_buffers 4 16k;
+    gzip_ http_version 1.1;
+    gzip_comp_level 2;
+    gzip_types text/plain application/x-javascript text/css application/xml;
+    gzip_vary on;
+
+    limit_zone crawler $binary_remote_addr 10m;
+
+    client_max_body_size 300m;
+
+    client_body_buffer_size 128k;
+ 
+    proxy_connect_timeout 600;
+    proxy_read_timeout 600;
+    proxy_send_timeout 600;
+    proxy_buffer_size 16k;
+    proxy_buffers 4 32k;
+    proxy_busy_buffers_size 64k;
+    proxy_temp_file_write_size 64k;
+
+    upstream php_server_pool
+    {
+ 	server 192.168.1.13:3245;
+  	server 192.168.1.14:3245 down;
+    }
+
+    upstream message_server_pool
+    {
+ 	server 192.168.1.15:80 weight=1 max_fails=2 fail_timeout=30s;
+	server 192.168.1.16:80 weight=1 max_fails=2 fail_timeout=30s;
+	server 192.168.1.17:80 weight=1 max_fails=2 fail_timeout=30s;
+	server 192.168.1.18:80 weight=1 max_fails=2 fail_timeout=30s;
+    }
+
+    server
+    {
+ 	listen 80;
+ 	server_name www.yourdomain.com;
+
+	location /
+	{
+	    proxy_next_upstream http_502 http_504 error timeout invalid_header;
+	    proxy_pass http://php_server_pool;
+	    proxy_set_header Host www.yourdomain.com;
+	    proxy_set_header X-Forwarded-For $remote_addr;
+	}
+
+ 	access_log /data1/logs/www.yourdomain.com_access.log;
+    }
+
+    server
+    {
+	listen 80;
+ 	server_name www1.yourdomain.com;
+
+	location /message/
+	{
+	    proxy_pass http://message_server_pool;
+	    proxy_set_header Host $host;
+	}
+
+	location / 
+	{
+	    proxy_pass http://php_server_pool;
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Forwarded-For $remote_addr;
+	}
+
+	access_log /data1/logs/message.yourdomain.com_access.log;
+    }
+
+    server
+    {
+	listen 80;
+	server_name bbs.yourdomain.com *.bbs.yourdomain.com;
+
+	location /
+	{
+	    proxy_pass http://bbs_server_pool;
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Forwarded-For $remote_addr;
+	}
+
+	access_log off;
+    }
+}

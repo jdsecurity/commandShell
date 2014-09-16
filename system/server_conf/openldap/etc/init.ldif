@@ -1,0 +1,21 @@
+dn: dc=greenpc,dc=cn
+objectClass: dcObject
+objectClass: organization
+dc: greenpc
+o: greenpc.cn
+description: greenpc.cn ldap
+
+dn: ou=group,dc=greenpc,dc=cn
+objectClass: organizationalUnit
+ou: group
+
+dn: ou=people,dc=greenpc,dc=cn
+objectClass: organizationalUnit
+ou: people
+
+dn: cn=admin,dc=greenpc,dc=cn
+objectClass: inetOrgPerson
+cn: admin
+sn: admin
+uid: admin
+userPassword: sonarlogic

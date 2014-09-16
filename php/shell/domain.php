@@ -1,11 +1,16 @@
 <?php
-$domains = array(
-    'alyee' => array('upload', 'static', 'ucserver', 'passport', 'luxury', 'dphp', 'wiki', 'wpm', 'www'),
+$domainOnline = array(
+    'iammumu' => array('www'),
     'julymom' => array('www'),
-    '91zuiai' => array('luxury', 'filesys', 'passport', 'www', 'static', 'upload', 'bookbar', 'movie', 'bbs', 'ucserver'),
-    'acanstudio' => array('missbao', 'demo.front', 'www', 'docs', 'blog'),
-    'iammumu' => array('www')
+    'alyee' => array('www', 'passport', 'luxury', 'missbao'),
+    '91zuiai' => array('www', 'passport', 'jzmedia', 'pay', 'luxury', 'filesys', 'bookbar', 'movie', 'stock'),
+    'acanstudio' => array('www', 'docs', 'blog', 'ucserver', 'static', 'upload', 'dphp'),
 );
 
 $cname = array('blog' => 'charlie.github.io.');
 
+$domainLocal = array(
+    'frame' => array('www', 'blog', 'docs', 'mumu', 'light.zf2', 'demo.front', 'www.zf2', 'demo.light', 'acanstudio.node', 'test.node'),
+    'cinew' => array('www', 'passport', 'pay', 'bbs', 'bookbar', 'movie', 'travel', 'luxury', 'filesys'),
+    'ci' => array('passport', 'jzmedia', 'luxury', 'pay', 'ucserver', 'static', 'upload'),
+)
