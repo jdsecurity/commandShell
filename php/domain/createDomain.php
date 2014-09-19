@@ -83,11 +83,12 @@ function getDomains()
             'www' => array('path' => 'common'),
         ),
         '91zuiai' => array(
-            'devnode' => array('path' => 'acanstudio/'),
-            'node' => array('path' => ''),
-            'devzf2' => array('path' => ''),
-            'frame' => array('path' => ''),
-            'zf2' => array('path' => ''),
+            'dev.frame' => array('path' => 'acanstudio/devFrame'),
+            'dev.node' => array('path' => 'wangcan/devNode', 'type' => 'node'),
+            'node' => array('path' => 'wangcan/nodeProject', 'type' => 'node'),
+            'dev.zf2' => array('path' => 'wangcan/devZf2'),
+            'frame' => array('path' => 'wangcan/lightFrame-demo/public'),
+            'zf2' => array('path' => 'wangcan/zf2Project/public'),
             'www' => array('path' => 'common'),
         ),
         'alyee' => array(
@@ -106,7 +107,7 @@ function getDomains()
             'upload' => array('path' => 'common/upload'),
             'dphp' => array('path' => 'common/dphp'),
             'www' => array('path' => 'common'),
-            'docs' => array('path' => 'acanstudio/docs'),
+            'docs' => array('path' => 'final/docsold', 'extInfo' => 'rewriteDocs'),
             'blog' => array('path' => 'acanstudio/blog/public'),
 
             'demo.luxury' => array('path' => 'final/ciProject/wwwroot/luxury'),
@@ -193,7 +194,13 @@ $iammumuExt = <<<IAMMUMUEXT
     </Directory>    
 IAMMUMUEXT;
 
-$textInfos = array('baseStr' => $baseStr, 'baseDomain' => $baseDomain, 'commonDomain' => $commonDomain, 'nodeDomain' => $nodeDomain, 'iammumuExt' => $iammumuExt);
+$rewriteDocs = <<<REWRITEDOCS
+    RewriteEngine on
+    RewriteCond $1 !^(zfuml)
+    RewriteRule   ^/([^/]+)/?(.*)    /$1/_build/html/$2
+REWRITEDOCS;
+
+$textInfos = array('baseStr' => $baseStr, 'baseDomain' => $baseDomain, 'commonDomain' => $commonDomain, 'nodeDomain' => $nodeDomain, 'iammumuExt' => $iammumuExt, 'rewriteDocs' => $rewriteDocs);
 
 return $textInfos;
 }
