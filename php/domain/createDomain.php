@@ -84,7 +84,7 @@ function getDomains()
         ),
         '91zuiai' => array(
             'dev.frame' => array('path' => 'acanstudio/devFrame'),
-            'dev.node' => array('path' => 'wangcan/devNode', 'type' => 'node'),
+            'dev.node' => array('path' => 'acanstudio/firstNode', 'type' => 'node'),
             'node' => array('path' => 'wangcan/nodeProject', 'type' => 'node'),
             'dev.zf2' => array('path' => 'wangcan/devZf2'),
             'frame' => array('path' => 'wangcan/lightFrame-demo/public'),
