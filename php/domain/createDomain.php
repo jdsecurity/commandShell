@@ -18,7 +18,7 @@ foreach ($domains as $domainBase => $infos) {
         $fullDomain = $key . '.' . $domain;
         $hosts .= "127.0.0.1    {$fullDomain}\n";
         $domainStrSub = isset($info['type']) && ($info['type'] == 'node') ? $textInfos['nodeDomain'] : $textInfos['commonDomain'];
-        $placeInfos = array("\r", '#PLACE_DOMAIN#', '#PLACE_DOMAIN_PATH#', '#PLACE_HTTP_PATH#', '#PLACE_LOG_PATH#', '#PLACE_NODE_PORT#');
+        $placeInfos = array("\r", '#PLACE_DOMAIN#', '#PLACE_DOMAIN_PATH#', '#PLACE_HTTP_PATH#', '#PLACE_LOG_PATH#', '#PLACE_NODE_PORT#', '#PLACE_EXT_INFO#');
         $domainPath = isset($info['path']) && !empty($info['path']) ? $info['path'] : $key;
         $trueInfos = array(
             'r' => '',
@@ -27,6 +27,7 @@ foreach ($domains as $domainBase => $infos) {
             'httpdPath' => $baseInfo['httpdPath'],
             'logPath' => $baseInfo['logPath'],
             'nodePort' => isset($info['port']) ? $info['port'] : '',
+            'extInfo' => isset($info['extInfo']) && isset($textInfos[$info['extInfo']]) ? $textInfos[$info['extInfo']] : '',
         );
         $domainStrSub = str_replace($placeInfos, $trueInfos, $domainStrSub);
         $domainStr .= "\n" . $domainStrSub . "\n";
@@ -59,7 +60,7 @@ function getBaseInfo($isLocal)
     );
 
     $online = array(
-        'type' => '.com',
+        'topDomain' => '.com',
         'baseDomain' => array('iammumu', 'julymom'),
         'ip' => '42.96.170.56',
         'wwwPath' => '/var/htmlwww/',
@@ -76,7 +77,7 @@ function getDomains()
     //'www' => array('path' => '', 'type' => '', 'port' => '', 'extInfo' => '')
     $domains = array(
         'iammumu' => array(
-            'www' => array('path' => 'common'),
+            'www' => array('path' => 'common', 'extInfo' => 'iammumuExt'),
         ),
         'julymom' => array(
             'www' => array('path' => 'common'),
@@ -159,6 +160,7 @@ $commonDomain = <<<COMMONDOMAIN
     DocumentRoot "#PLACE_DOMAIN_PATH#"
     ServerName #PLACE_DOMAIN#
 {$logStr}
+#PLACE_EXT_INFO#
 </VirtualHost>
 COMMONDOMAIN;
 
@@ -179,7 +181,19 @@ $nodeDomain = <<<NODEDOMAIN
     </Location>
 </VirtualHost>
 NODEDOMAIN;
-$textInfos = array('baseStr' => $baseStr, 'baseDomain' => $baseDomain, 'commonDomain' => $commonDomain, 'nodeDomain' => $nodeDomain);
+
+$iammumuExt = <<<IAMMUMUEXT
+    Alias /mumupic "/var/htmlwww/iammumupic"
+    <Directory "/var/htmlwww/iammumupic">
+        AllowOverride AuthConfig
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        Require all granted
+    </Directory>    
+IAMMUMUEXT;
+
+$textInfos = array('baseStr' => $baseStr, 'baseDomain' => $baseDomain, 'commonDomain' => $commonDomain, 'nodeDomain' => $nodeDomain, 'iammumuExt' => $iammumuExt);
 
 return $textInfos;
 }
