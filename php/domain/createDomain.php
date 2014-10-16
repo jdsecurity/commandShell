@@ -1,4 +1,6 @@
 <?php
+//http://localhost/acanstudio/commandConfigShell/php/domain/createDomain.php?isLocal=is_local
+//php /var/htmlwww/acanstudio/commandConfigShell/php/domain/createDomain.php
 $isLocal = isset($_GET['isLocal']) ? $_GET['isLocal'] : '';
 $isLocal = $isLocal == 'is_local' ? true : false;
 $baseInfo = getBaseInfo($isLocal);
@@ -93,12 +95,12 @@ function getDomains()
         ),
         'alyee' => array(
             //'*.test' => array('path' => ''),
-            'statistic' => array('path' => 'wangcan/ciProject/wwwroot/statistic'),
-            'pay' => array('path' => 'wangcan/ciProject/wwwroot/pay'),
-            'jzmedia' => array('path' => 'wangcan/ciProject/wwwroot/jzmedia'),
-            'passport' => array('path' => 'wangcan/ciProject/wwwroot/passport'),
-            'luxury' => array('path' => 'wangcan/ciProject/wwwroot/luxury'),
-            'www' => array('path' => 'wangcan/ciProject/wwwroot'),
+            'dev.statistic' => array('path' => 'wangcan/ciProject/wwwroot/statistic'),
+            'dev.pay' => array('path' => 'wangcan/ciProject/wwwroot/pay'),
+            'dev.jzmedia' => array('path' => 'wangcan/ciProject/wwwroot/jzmedia'),
+            'dev.passport' => array('path' => 'wangcan/ciProject/wwwroot/passport'),
+            'dev.luxury' => array('path' => 'wangcan/ciProject/wwwroot/luxury'),
+            'dev.www' => array('path' => 'wangcan/ciProject/wwwroot'),
         ),
         'acanstudio' => array(
             'front' => array('path' => 'acanstudio/webFront'),
