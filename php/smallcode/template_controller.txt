@@ -1,0 +1,94 @@
+<?php
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class #CLASS# extends ControllerAdminInfo
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->_initCurrentModel('#TABLE#Model');
+
+    }
+
+    /**
+     * List the infos
+     *
+     * @return void
+     */
+    public function listinfo()
+    {
+        $this->_listinfo();
+    }
+
+    /**
+     * Add an info
+     *
+     * @return void
+     */
+    public function add()
+    {
+        $this->_add();
+    }
+
+    /**
+     * Edit an info
+     *
+     * @return void
+     */
+    public function edit()
+    {
+        $this->_edit();
+    }
+
+    /**
+     * Delete an info
+     *
+     * @return void
+     */
+    public function delete()
+    {
+        $this->_delete();
+    }
+
+    /**
+     * Initial some info before add or edit
+     *
+     * @return void
+     */
+    protected function _initInfo()
+    {
+    }
+
+    /**
+     * Format the info
+     *
+     * @param  array $info
+     * @param  boolean $isWrite
+     * @return array
+     */
+    protected function _formatInfo($info, $isWrite = false)
+    {
+        //isset($info['role_id']) && $this->_initInfo($info['role_id']);
+        if ($isWrite) {
+        } else {
+        }
+
+        return $info;
+    }
+
+    /**
+     * Format the element of the infos
+     *
+     * @param  array $infos the infos
+     * @return array | false formated infos
+     */
+    protected function _formatInfos(array $infos)
+    {
+        if (is_array($infos) && !empty($infos)) {
+            foreach ($infos as $key => $info) {
+                $infos[$key] = $info;
+            }
+        }
+        return $infos;
+    }
+}
