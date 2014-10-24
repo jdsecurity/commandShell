@@ -10,7 +10,7 @@ $templates['controller'] = file_get_contents(__DIR__ . '/template_controller.txt
 $templates['view'] = file_get_contents(__DIR__ . '/template_view.txt');
 $templates['model'] = getBaseContent();
 
-$databases = array('workshop_new_luxury', 'workshop_new_pay');
+$databases = array('workshop_new_luxury', 'workshop_new_pay', 'workshop_new_passport');
 foreach ($databases as $database) {
     $tables = getTables($database);
     if (is_array($tables) && !empty($tables)) {
