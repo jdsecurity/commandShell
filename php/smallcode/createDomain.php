@@ -1,6 +1,6 @@
 <?php
-//http://localhost/acanstudio/commandConfigShell/php/domain/createDomain.php?isLocal=is_local
-//php /var/htmlwww/acanstudio/commandConfigShell/php/domain/createDomain.php
+//http://localhost/acanstudio/commandConfigShell/php/smallcode/createDomain.php?isLocal=is_local
+//php /var/htmlwww/acanstudio/commandConfigShell/php/smallcode/createDomain.php
 $isLocal = isset($_GET['isLocal']) ? $_GET['isLocal'] : '';
 $isLocal = $isLocal == 'is_local' ? true : false;
 $baseInfo = getBaseInfo($isLocal);
@@ -85,7 +85,7 @@ function getDomains()
             'www' => array('path' => 'common'),
         ),
         '91zuiai' => array(
-            'dev.frame' => array('path' => 'acanstudio/devFrame'),
+            'dev.frame' => array('path' => 'acanstudio/devFrame/example'),
             'dev.node' => array('path' => 'acanstudio/firstNode', 'type' => 'node'),
             'node' => array('path' => 'wangcan/nodeProject', 'type' => 'node'),
             'dev.zf2' => array('path' => 'wangcan/devZf2'),
@@ -111,6 +111,10 @@ function getDomains()
             'www' => array('path' => 'common'),
             'docs' => array('path' => 'final/docsold', 'extInfo' => 'rewriteDocs'),
             'blog' => array('path' => 'acanstudio/blog/public'),
+
+            'test1' => array('path' => 'test/test1/public'),
+            'test2' => array('path' => 'test/test2/public'),
+            'test3' => array('path' => 'test/test3'),
 
             'demo.luxury' => array('path' => 'final/ciProject/wwwroot/luxury'),
             'demo.statistic' => array('path' => 'final/ciProject/wwwroot/statistic'),
