@@ -106,6 +106,7 @@ function getDomains()
             'front' => array('path' => 'acanstudio/webFront'),
             'ucserver' => array('path' => 'common/ucserver'),
             'static' => array('path' => 'common/static'),
+            'asset' => array('path' => 'common/asset'),
             'upload' => array('path' => 'common/upload'),
             'dphp' => array('path' => 'common/dphp'),
             'www' => array('path' => 'common'),
