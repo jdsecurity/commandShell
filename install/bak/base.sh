@@ -1,7 +1,6 @@
 !#/bin/bash
 # Install Zlib+freetype+jpeg+libpng+gd+libiconv+libmcrypt+mhash+mcrypt
 
-mkdir /home/wangcanliang/spath
 mkdir /var/slog/{nagios,nginx,httpd,mysql,php,svn,openldap} -p
 
 tar zxvf /home/wangcanliang/source/zlib-1.2.4* -C /home/wangcanliang/spath

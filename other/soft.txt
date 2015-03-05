@@ -32,3 +32,6 @@ centos
 	http://mirror.bit.edu.cn/centos/6.3/isos/i386/CentOS-6.3-i386-bin-DVD1.iso
 	http://mirror.bit.edu.cn/centos/6.3/isos/i386/CentOS-6.3-i386-bin-DVD2.iso
 	2013-01-07 version 6.3
+
+firebug下载失败：打开 选项→高级→证书 下面有个查询OCSP...省略 前面的勾勾去掉再下载就好了~~
+下载好后记得改回来哦

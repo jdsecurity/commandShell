@@ -1,5 +1,5 @@
 !#/bin/bash
-# Install Zlib+freetype+jpeg+libpng+gd+libiconv+libmcrypt+mhash+mcrypt
+# config the linux base config and base soft
 
 # CentOS 6.2 Minimal Install
 # vi /etc/sysconfit/network-scripts/ifcfg-eth0
@@ -23,19 +23,21 @@ service network restart
 
 adduser wangcanliang
 mkdir /opt/{source,sourcepackage,soft}
+mkdir /var/slog/{nagios,nginx,httpd,mysql,php,svn,openldap} -p
 
 rpm -ivh http://mirrors.sohu.com/fedora-epel/6/x86_64/epel-release-6-7.noarch.rpm
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
 yum -y install yum-priorities
 yum update
 
-yum -y install gcc gcc-c++ make automake autoconf kernel-devel ncurses-devel 
-yum -y install libxml2-devel openssl-devel curl-devel libjpeg-devel libpng-devel pcre-devel libtool-libs freetype-devel gd zlib-devel file bison patch mlocate \
-	flex diffutils readline-devel glibc-devel glib2-devel bzip2-devel gettext-devel libcap-devel libmcrypt-devel
+yum -y install gcc gcc-c++ make automake autoconf kernel-devel ncurses-devel \
+    libxml2-devel openssl-devel curl-devel libjpeg-devel libpng-devel pcre-devel \
+    libtool-libs freetype-devel gd zlib-devel file bison patch mlocate \
+    flex diffutils readline-devel glibc-devel glib2-devel bzip2-devel gettext-devel libcap-devel libmcrypt-devel
+
 yum install wget
 
 cd /opt/source/
-
 wget http://github.com/downloads/rvoicilas/inotify-tools/inotify-tools-3.14.tar.gz
 tar zxvf /opt/source/inotify-tools* -C /opt/sourcepackage/
 cd /opt/sourcepackage/inotify-tools*
