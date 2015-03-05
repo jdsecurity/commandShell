@@ -68,7 +68,7 @@ make UISTYLE=text
 make install
 
 useradd webuser
-passwd webuser ('web@!@#@user)
+passwd webuser ('web@!@#@user')
 su - webuser
 ssh-keygen -t rsa
 scp ~/.ssh/id_rsa.pub webuser@192.168.10.4:/home/webuser/
