@@ -1,11 +1,15 @@
 !#/bin/bash
 # Install Apache
 
-wget http://mirrors.cnnic.cn/apache/apr/apr-1.4.8.tar.bz2
-wget http://mirrors.cnnic.cn/apache/apr/apr-util-1.5.2.tar.bz2
-wget http://mirrors.cnnic.cn/apache/apr/apr-iconv-1.2.1.tar.bz2
-wget http://mirrors.cnnic.cn/apache/httpd/httpd-2.4.6.tar.bz2
+wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.36.tar.gz
+wget http://mirrors.hust.edu.cn/apache/apr/apr-1.5.1.tar.bz2
+wget http://mirrors.hust.edu.cn/apache/apr/apr-util-1.5.4.tar.bz2
+wget http://mirrors.hust.edu.cn/apache/apr/apr-iconv-1.2.1.tar.bz2
+wget http://mirrors.hust.edu.cn/apache/httpd/httpd-2.4.12.tar.bz2
 
+tar zxvf /opt/sourcepackage/pcre* -C /opt/source
+cd /opt/source/pcre*
+./configure --prefix=/opt/soft/pcre && make && make install
 
 tar jxvf /opt/sourcepackage/apr-1* -C /opt/source
 cd /opt/source/apr-1*
@@ -26,6 +30,7 @@ cp /opt/source/apr-u* ./srclib/apr-util -r
 ./configure --prefix=/opt/soft/httpd \
   --with-ssl \
   --with-included-apr \
+  --with-pcre=/opt/soft/pcre \
   --enable-ssl \
   --enable-dav \
   --enable-so \

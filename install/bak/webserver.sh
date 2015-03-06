@@ -1,17 +1,32 @@
 !#/bin/bash
 # Install Apache+Nginx
 
-tar jxvf /home/wangcanliang/source/pcre* -C /home/wangcanliang/spath/
-cd /home/wangcanliang/spath/pcre*
-./configure --prefix=/webnew/pcre
+cd /opt/sourcepackage
+wget http://nginx.org/download/nginx-1.5.3.tar.gz
+
+tar zxvf /opt/sourcepackage/nginx-1.5* -C /opt/source
+cd /opt/source/nginx-1.5*
+./configure \
+--user=www \
+--group=www \
+--prefix=/opt/soft/nginx \
+--with-http_stub_status_module \
+--with-http_ssl_module \
+--with-pcre=/opt/source/pcre-8.32 \
+--with-http_realip_module \
+--with-http_image_filter_module
 make
 make install
 
-tar zxvf /home/wangcanliang/source/nginx-1* -C /home/wangcanliang/spath/
-cd /home/wangcanliang/spath/nginx*
-./configure --prefix=/webnew/nginx --with-http_stub_status_module --with-pcre=/home/wangcanliang/spath/pcre-8*
-make
-make install
+
+tar zxvf /opt/sourcepackage/nginx* -C /opt/sourcepackage/
+cd /opt/sourcepackage/nginx*
+#./configure --prefix=/opt/nginx && make && make install
+./configure \
+--prefix=/webnew/nginx \
+--with-http_stub_status_module \
+--with-pcre=/home/wangcanliang/spath/pcre-8* \
+make && make install
 
 mkdir /web/nginx/conf/server
 mkdir /var/slog/nginx

@@ -1,13 +1,6 @@
 !#/bin/bash
 # Install PHP（cgi+module）
 
-#wget http://php-fpm.org/downloads/php-5.2.13-fpm-0.5.13.diff.gz
-#gzip -dc php-5.2.13-fpm-0.5.13.diff.gz | patch -p1
-
-#tar jxvf /home/wangcanliang/source/php-5.2.17* -C /home/wangcanliang/spath
-#cd /home/wangcanliang/spath/php-5.2.17*
-
-tar jxvf /home/wangcanliang/source/php-5.3* -C /home/wangcanliang/spath
 cp /home/wangcanliang/spath/php-5* /home/wangcanliang/spath/phpcgi -r
 cd /home/wangcanliang/spath/phpcgi
 ./configure --prefix=/webnew/phpcgi \
@@ -48,44 +41,6 @@ cd /home/wangcanliang/spath/phpcgi
 make
 make install
 
-cd /home/wangcanliang/spath/php-*
-./configure --prefix=/webnew/php \
---with-config-file-path=/webnew/php/etc \
---with-apxs2=/webnew/httpd/bin/apxs \
---with-mysql=/webnew/mysql \
---with-mysqli=/webnew/mysql/bin/mysql_config \
---with-iconv-dir=/webnew/iconv \
---with-freetype-dir=/webnew/freetype \
---with-jpeg-dir=/webnew/jpeg \
---with-png-dir=/webnew/libpng \
---with-zlib \
---with-libxml-dir=/usr \
---enable-xml \
---disable-rpath \
---enable-safe-mode \
---enable-bcmath \
---enable-shmop \
---enable-sysvsem \
---enable-inline-optimization \
---with-curl \
---with-curlwrappers \
---enable-mbregex \
---enable-mbstring \
---with-mcrypt=/webnew/libmcrypt \
---with-gd=/webnew/gd2/ \
---enable-gd-native-ttf \
---with-openssl \
---with-mhash \
---enable-pcntl \
---enable-sockets \
---with-ldap \
---with-ldap-sasl \
---with-xmlrpc \
---enable-zip \
---enable-soap \
---without-pear
-make
-make install
 
 NT, TERM 立刻终止
 QUIT 平滑终止
@@ -165,3 +120,9 @@ cd /home/wangcanliang/spath/scws-1*/phpext/
 ./configure --with-scws=/webnew/scws/ --with-php-config=/webnew/phpcgi/bin/php-config 
 make
 make install
+
+
+
+# over
+#wget http://php-fpm.org/downloads/php-5.2.13-fpm-0.5.13.diff.gz
+#gzip -dc php-5.2.13-fpm-0.5.13.diff.gz | patch -p1
