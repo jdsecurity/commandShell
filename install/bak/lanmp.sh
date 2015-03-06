@@ -57,7 +57,9 @@ mkdir /opt/soft/php/etc
 cp php.ini-production /opt/soft/php/etc/php.ini
 #ln -s /usr/local/php5/etc/php.ini /etc/php.ini #创建配置文件软链接
 echo 'export PATH="/opt/soft/php/bin:$PATH"' >> ~/.bashrc
-
+cd /opt/soft/tools
+wget https://getcomposer.org/download/1.0.0-alpha9/composer.phar
+wget https://phar.phpunit.de/phpunit.phar
 
 /usr/sbin/groupadd www
 /usr/sbin/useradd -g www www
