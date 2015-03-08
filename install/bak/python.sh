@@ -1,8 +1,15 @@
 !#/bin/bash
 # Install Git+python
 
-rpm -Uvh http://repo.webtatic.com/yum/centos/5/latest.rpm
-yum install --enablerepo=webtatic git-all
+cd /opt/sourcepackage/
+wget https://www.python.org/ftp/python/2.7.5/Python-2.7.5.tar.bz2
+tar jxvf /opt/sourcepackage/python* -C /opt/source/
+cd /opt/source/python*
+./configure --prefix=/opt/soft/python
+make && make install
+
+
+
 
 wget  http://www.python.org/ftp/python/3.2.3/Python-3.2.3.tar.bz2
 tar jfvx /home/wangcanliang/source/Python-3* -C /home/wangcanliang/spath

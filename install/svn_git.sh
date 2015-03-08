@@ -4,6 +4,8 @@
 cd /opt/sourcepackage/
 wget http://apache.dataguru.cn/subversion/subversion-1.8.11.tar.bz2
 wget http://www.sqlite.org/2015/sqlite-autoconf-3080803.tar.gz
+#wget http://serf.googlecode.com/files/serf-1.2.1.tar.bz2  
+wget http://xz1.cr173.com/soft1/serf-1.2.1.tar.bz2
 
 # after 1.8.0 no neon
 #wget http://www.webdav.org/neon/neon-0.29.6.tar.gz
@@ -19,6 +21,13 @@ cd /opt/source/sqlite-autoconf-3*/
 ./configure --prefix=/opt/soft/sqlite
 make && make install
 
+tar jxvf /opt/sourcepackage/serf* -C /opt/source
+cd /opt/source/serf*
+./configure --prefix=/opt/soft/serf \
+--with-apr=/opt/soft/apr \
+--with-apr-util=/opt/soft/apr-util 
+make && make install
+
 #tar zxvf /opt/sourcepackage/sqlite* 
 #mv sqlite* sqlite-amalgamation
 tar jxvf /opt/sourcepackage/subversion* -C /opt/source
@@ -29,6 +38,7 @@ cd /opt/source/subversion*
 --with-apr-util=/opt/soft/apr-util \
 --with-openssl --with-zlib --enable-maintainer-mode \
 --with-sqlite=/opt/soft/sqlite \
+--with-serf=/opt/soft/serf \
 && make && make install
 
 cp /opt/soft/svn/libexec/mod_* /opt/soft/httpd/modules/

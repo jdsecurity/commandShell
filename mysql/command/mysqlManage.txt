@@ -7,25 +7,8 @@ mysql -uroot mysql
   FLUSH PRIVILEGES;
 
 GRANT ALL PRIVILEGES ON studio_bbs.* TO duser_bbs@'10.129.51.64' IDENTIFIED BY 'bbs_du';
-GRANT ALL PRIVILEGES ON studio_kidsedu.* TO duser_kidsedu@'10.129.51.64' IDENTIFIED BY 'kidsedu_du';
-GRANT ALL PRIVILEGES ON studio_movie.* TO duser_movie@'10.129.51.64' IDENTIFIED BY 'movie_du';
-GRANT ALL PRIVILEGES ON studio_passport.* TO duser_passport@'10.129.51.64' IDENTIFIED BY 'passport_du';
-GRANT ALL PRIVILEGES ON studio_pay.* TO duser_pay@'10.129.51.64' IDENTIFIED BY 'pay_du';
-GRANT ALL PRIVILEGES ON studio_spider.* TO duser_spider@'10.129.51.64' IDENTIFIED BY 'spider_du';
-GRANT ALL PRIVILEGES ON studio_ucserver.* TO duser_ucserver@'10.129.51.64' IDENTIFIED BY 'ucserver_du';
-GRANT ALL PRIVILEGES ON studio_webgame.* TO duser_webgame@'10.129.51.64' IDENTIFIED BY 'webgame_du';
-
-
-GRANT ALL PRIVILEGES ON web_adunion.* TO user_adunion@'192.168.1.%' IDENTIFIED BY 'ad@DATA@union';
-GRANT ALL PRIVILEGES ON third_hdwiki.* TO duser_hdwiki@10.129.51.64 IDENTIFIED BY 'hdwiki@USER@d';
-GRANT ALL PRIVILEGES ON third_wpmanager.* TO duser_wpmanager@10.129.51.64 IDENTIFIED BY 'wpm@USER@data';
-GRANT ALL PRIVILEGES ON old_spider.* TO dold_spider@10.129.51.64 IDENTIFIED BY 'spider@USE@data';
-
 GRANT ALL PRIVILEGES ON *.* TO 'wangcanliang'@'%' IDENTIFIED BY 'admin@%^@my';
-GRANT ALL PRIVILEGES ON *.* TO 'user_allpriv'@'localhost' IDENTIFIED BY 'all@PRI@data';
 GRANT ALL PRIVILEGES ON *.* TO 'user_allpriv'@'192.168.1.186' IDENTIFIED BY 'all@PRI@data';
-GRANT ALL PRIVILEGES ON *.* TO user_common@'192.168.1.%' IDENTIFIED BY 'cn@DATA@all';
-
 
 GRANT REPLICATION SLAVE ON *.* TO 'duser_repli'@'192.168.1.%' IDENTIFIED BY 'repADMIN';
 SHOW MASTER STATUS \G;

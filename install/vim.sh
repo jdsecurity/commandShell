@@ -1,10 +1,11 @@
 cd /opt/sourcepackage/
 wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
-tar jxvf vim-7.4.tar.bz2 -C ../source
-cd ../source/vim74/
+tar jxvf /opt/sourcepackage/vim-7.4.tar.bz2 -C /opt/source
+cd /opt/source/vim74/
 ./configure --prefix=/opt/soft/vim --enable-multibyte
 make ; make install
-ln -s /opt/soft/vim/bin/vim /bin/vim
+ln -s /opt/soft/vim/bin/vim /usr/bin/vim
+
 vi ~/.vimrc
 cd ~
 mkdir .vim/bundle -p

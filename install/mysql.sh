@@ -31,7 +31,7 @@ make && make install
 
 cd /opt/soft/mysql
 ./scripts/mysql_install_db --user=mysql --datadir=/var/slog/mysql/data/
-#/opt/soft/mysqld_safe --defaults-file=/opt/soft/mysql/etc/my.cnf
+/opt/soft/mysql/bin/mysqld_safe --defaults-file=/opt/soft/mysql/etc/my.cnf &
 /opt/soft/mysql/bin/mysqladmin -uroot password 'new-password'
 #/opt/soft/mysql/bin/mysqladmin -uroot -p password '你的新密码'
 #/opt/soft/mysql/bin/mysqladmin -uroot password oldpass "newpass"
@@ -41,6 +41,9 @@ cd /opt/sourcepackage
 wget http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/4.3.11.1/phpMyAdmin-4.3.11.1-all-languages.zip
 unzip /opt/sourcepackage/phpMyAdmin-4*
 mv phpMyAdmin-4*/ /var/htmlwww/common/dphp
+cd /var/htmlwww/common/dphp
+vim config.sample.inc.php
+vim libraries/config.default.php
 
 
 # install the 5.1* version
