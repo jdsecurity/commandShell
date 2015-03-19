@@ -1,17 +1,23 @@
 !#/bin/bash
 # Install Subversion+Nagios
 
-groupadd nagios
-useradd -g nagios -d /webnew/nagios -s /bin/false nagios
-chmod 755 /webnew/nagios
+#yum install -y gcc glibc glibc-common gd gd-devel xinetd openssl-devel 
+#sestatus -v | getenforce; vim /etc/selinux/config # SELINUX=enforcing->disabled
 
-tar zxvf /home/wangcanliang/source/nagios-3.3.1.tar.gz  -C /home/wangcanliang/spath/
-cd /home/wangcanliang/spath/nagios/
-./configure --prefix=/webnew/nagios \
---with-httpd-conf=/webnew/httpd/conf/extra \
---localstatedir=/var/slog/nagios \
---with-gd-lib=/webnew/gd2/lib \
---with-gd-inc=/webnew/gd2/include
+groupadd nagios
+useradd -g nagios -d /opt/soft/nagios -s /bin/false nagios
+chmod 755 /opt/soft/nagios
+usermod -a -G nagios daemon
+
+cd /opt/sourcepackage/
+wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-4.0.8.tar.gz
+wget http://nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz
+tar zxvf /opt/sourcepackage/nagios-*  -C /opt/source
+cd /opt/source/nagios-*
+./configure --prefix=/opt/soft/nagios \
+--with-command-group=nagios \
+--with-httpd-conf=/opt/soft/httpd/conf/extra \
+--localstatedir=/var/slog/nagios
 
 make all
 make install
@@ -20,14 +26,15 @@ make install-commandmode
 make install-config
 make install-webconf
 
-#mv /webnew/httpd/conf/nagios.conf /webnew/httpd/conf/extra/
+#mv /opt/soft/httpd/conf/nagios.conf /opt/soft/httpd/conf/extra/
 
-
-tar zxvf /home/wangcanliang/source/nagios-plugins-1.4.15.tar.gz -C /home/wangcanliang/spath/
-cd /home/wangcanliang/spath/nagios-plugins-1.4.15/
-./configure --prefix=/webnew/nagios/
-make
-make install
+tar zxvf /opt/sourcepackage/nagios-plugins-* -C /opt/source/
+cd /opt/source/nagios-plugins-*/
+./configure --prefix=/opt/soft/nagios/ \
+--with-nagios-user=nagios \
+--with-nagios-group=nagios  \
+--with-mysql 
+make && make install
 
 chkconfig --add nagios
 chkconfig nagios on
@@ -36,7 +43,7 @@ service nagios start
 
 tar zxvf /home/wangcanliang/source/nload*.tar.gz -C /home/wangcanliang/spath/
 cd /home/wangcanliang/spath/nload*/
-./configure --prefix=/webnew/nload/
+./configure --prefix=/opt/soft/nload/
 make
 make install
 如安装时提示下面的问题
