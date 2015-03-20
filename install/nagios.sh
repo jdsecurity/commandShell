@@ -1,5 +1,5 @@
 !#/bin/bash
-# Install Subversion+Nagios
+# Install Nagios
 
 #yum install -y gcc glibc glibc-common gd gd-devel xinetd openssl-devel 
 #sestatus -v | getenforce; vim /etc/selinux/config # SELINUX=enforcing->disabled
@@ -10,8 +10,12 @@ chmod 755 /opt/soft/nagios
 usermod -a -G nagios daemon
 
 cd /opt/sourcepackage/
+wget http://nagios-plugins.org/download/nagios-plugins-1.4.15.tar.gz
+wget http://jaist.dl.sourceforge.net/project/nagios-cn/sourcecode/zh_CN%203.2.3/nagios-cn-3.2.3.tar.bz2
+
 wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-4.0.8.tar.gz
 wget http://nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz
+
 tar zxvf /opt/sourcepackage/nagios-*  -C /opt/source
 cd /opt/source/nagios-*
 ./configure --prefix=/opt/soft/nagios \

@@ -18,7 +18,7 @@ yum -y install yum-priorities
 yum update
 yum -y install gcc gcc-c++ make automake autoconf kernel-devel ncurses-devel \
     libxml2-devel openssl-devel curl-devel libjpeg-devel libpng-devel pcre-devel expat-devel \
-    libtool-libs freetype-devel gd zlib-devel file bison patch mlocate libevent\
+    libtool-libs freetype-devel gd gd-devel zlib-devel file bison patch mlocate libevent\
     flex diffutils readline-devel glibc glibc-common glibc-devel glib2-devel bzip2-devel gettext-devel libcap-devel libmcrypt-devel
 
 # install apache, look at apache.sh
