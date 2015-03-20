@@ -16,8 +16,12 @@ wget http://jaist.dl.sourceforge.net/project/nagios-cn/sourcecode/zh_CN%203.2.3/
 wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-4.0.8.tar.gz
 wget http://nagios-plugins.org/download/nagios-plugins-2.0.3.tar.gz
 
-tar zxvf /opt/sourcepackage/nagios-*  -C /opt/source
-cd /opt/source/nagios-*
+tar jxvf /opt/sourcepackage/nagios-cn* -C /opt/source
+cd /opt/source/nagios-cn*
+
+tar zxvf /opt/sourcepackage/nagios-4*  -C /opt/source
+cd /opt/source/nagios-4*
+
 ./configure --prefix=/opt/soft/nagios \
 --with-command-group=nagios \
 --with-httpd-conf=/opt/soft/httpd/conf/extra \
@@ -39,6 +43,8 @@ cd /opt/source/nagios-plugins-*/
 --with-nagios-group=nagios  \
 --with-mysql 
 make && make install
+
+/opt/soft/httpd/bin/htpasswd -c /opt/soft/nagios/etc/htpasswd.users wangcanliang
 
 chkconfig --add nagios
 chkconfig nagios on
