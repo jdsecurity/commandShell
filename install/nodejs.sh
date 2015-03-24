@@ -24,7 +24,7 @@ cd missbao
 supervisor ./bin/www &
 
 cd /opt/sourcepackage
-wget **mongodb**
+wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.0.1.tgz
 tar zxvf mongodb* -C /opt/soft/mongodb
 
 /opt/soft/mongodb/bin/mongod --dbpath=/var/slog/mongodb/data/ --logpath=/var/slog/mongodb/logs/mongodb.log --logappend & # 启动mongodb

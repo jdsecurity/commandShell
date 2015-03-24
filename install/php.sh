@@ -112,13 +112,36 @@ ln -s /usr/local/mysql/lib/libmysqlclient.so.18  /usr/lib64/
 make;
 make install;
 
+cd /opt/source/php-5.6.6/ext/curl
+/opt/soft/php/bin/phpize
+./configure --with-php-config=/opt/soft/php/bin/php-config
+make && make install
+
+cd /opt/source/php-5.6.6/ext/pdo
+/opt/soft/php/bin/phpize
+./configure --with-php-config=/opt/soft/php/bin/php-config --enable-pdo=shared
+make && make install
+
+cd /opt/source/php-5.6.6/ext/pdo_mysql
+/opt/soft/php/bin/phpize
+./configure --with-php-config=/opt/soft/php/bin/php-config --with-pdo-mysql=/opt/soft/mysql/
+make && make install
+
+#yum -y install m4 
+cd /opt/sourcepackage
+wget http://pecl.php.net/get/mongo-1.6.5.tgz
+tar zxvf /opt/sourcepackage/mongo-1.6.5.tgz -C /opt/source
+cd /opt/source/mongo-1.6.5
+/opt/soft/php/bin/phpize
+./configure --with-php-config=/opt/soft/php/bin/php-config
+make && make install
+vim /opt/soft/php/etc/php.ini
+
 cd /opt/sourcepackage
 wget http://pecl.php.net/get/xhprof-0.9.4.tgz
 tar zxvf /opt/sourcepackage/xhprof* -C /opt/source/
 cd /opt/source/xhprof*/extension/
 /opt/soft/php/bin/phpize
-./configure --with-php=/opt/soft/php/bin/php-config
-make; make install
 ./configure --with-php-config=/opt/soft/php/bin/php-config
 make; make install
 
