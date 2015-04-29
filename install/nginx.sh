@@ -1,32 +1,22 @@
 !#/bin/bash
-# Install Apache+Nginx
+# Install Nginx
 
 cd /opt/sourcepackage
-wget http://nginx.org/download/nginx-1.5.3.tar.gz
+wget http://nginx.org/download/nginx-1.8.0.tar.gz
 
-tar zxvf /opt/sourcepackage/nginx-1.5* -C /opt/source
-cd /opt/source/nginx-1.5*
+tar zxvf /opt/sourcepackage/nginx-1.* -C /opt/source
+cd /opt/source/nginx-1.*
 ./configure \
---user=www \
---group=www \
+--user=daemon \
+--group=daemon \
 --prefix=/opt/soft/nginx \
 --with-http_stub_status_module \
 --with-http_ssl_module \
---with-pcre=/opt/source/pcre-8.32 \
+--with-pcre=/opt/source/pcre-8.36 \
 --with-http_realip_module \
 --with-http_image_filter_module
-make
-make install
+make ; make install
 
-
-tar zxvf /opt/sourcepackage/nginx* -C /opt/sourcepackage/
-cd /opt/sourcepackage/nginx*
-#./configure --prefix=/opt/nginx && make && make install
-./configure \
---prefix=/webnew/nginx \
---with-http_stub_status_module \
---with-pcre=/home/wangcanliang/spath/pcre-8* \
-make && make install
 
 mkdir /web/nginx/conf/server
 mkdir /var/slog/nginx
@@ -92,7 +82,3 @@ mv ~/id_rsa.pub ~/.ssh/authorized_keys
 service sshd restart
 unison /var/htmlwww/ganwanpro/wwwroot/ ssh://webuser@192.168.1.190//var/htmlwww/ganwanpro/wwwroot
 
-chown webuser.webuser wwwroot/bbs/forumdata/ -R
-chown webuser.webuser wwwroot/bbs/attachments -R
-chown webuser.webuser wwwroot/ucserver/data/ -R
-chown webuser.webuser wwwroot/uploadfile -R

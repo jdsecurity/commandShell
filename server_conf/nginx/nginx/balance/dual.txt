@@ -1,3 +1,0 @@
-/sbin/ifconfig eth0:1 61.1.1.2 broadcast 61.1.1.255 netmask 255.255.255.0 up
-/sbin/route add -host 61.1.1.2 dev eth0:1
-/sbin/arping -I eth0 -c 3 -s 61.1.1.2 61.1.1.1
