@@ -4,7 +4,7 @@
 
 adduser wangcanliang
 mkdir /opt/{source,sourcepackage,soft}
-mkdir /var/htmlwww/{wangcan,acanstudio.common}
+mkdir /var/htmlwww/{wangcan,acanstudio,common} -p
 mkdir /var/slog/{nagios,nginx,httpd,mysql,php,svn,openldap} -p
 mkdir /var/slog/httpd/logs
 mkdir /var/slog/mysql/log

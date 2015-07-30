@@ -84,7 +84,7 @@ chown daemon.daemon test/db -R
 
 cd /opt/sourcepackage/
 wget https://www.kernel.org/pub/software/scm/git/git-2.3.1.tar.gz
-tar zxvf git-2* -C /opt/source
+tar zxvf /opt/sourcepackage/git-2* -C /opt/source
 cd /opt/source/git-*
 #autoconf
 ./configure --with-curl=/usr/local
