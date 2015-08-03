@@ -83,7 +83,7 @@ chown daemon.daemon test/db -R
 #  openssl zlib curl install autoconf perl-devel
 
 cd /opt/sourcepackage/
-wget https://www.kernel.org/pub/software/scm/git/git-2.3.1.tar.gz
+wget https://www.kernel.org/pub/software/scm/git/git-2.5.0.tar.gz
 tar zxvf /opt/sourcepackage/git-2* -C /opt/source
 cd /opt/source/git-*
 #autoconf

@@ -105,7 +105,7 @@ cd /opt/source/phpcgi
 --with-pdo-mysql
 make
 make install
-cp php.ini-development /Data/apps/php/etc/php.ini
+cp php.ini-development /opt/soft/php/etc/php.ini
 cd ../
 
 ln -s /usr/local/mysql/lib/libmysqlclient.so.18  /usr/lib64/
