@@ -39,16 +39,16 @@ Uninstall_LNMP()
     Remove_StartUp ${DB_Name}
     Remove_StartUp php-fpm
     echo "Deleting LNMP files..."
-    rm -rf /usr/local/nginx
-    rm -rf /usr/local/${DB_Name}/!(var|data)
-    rm -rf /usr/local/php
-    rm -rf /usr/local/zend
-
-    rm -f /etc/my.cnf
-    rm -f /etc/init.d/nginx
-    rm -f /etc/init.d/${DB_Name}
-    rm -f /etc/init.d/php-fpm
-    rm -f /bin/lnmp
+#    rm -rf /usr/local/nginx
+#    rm -rf /usr/local/${DB_Name}/!(var|data)
+#    rm -rf /usr/local/php
+#    rm -rf /usr/local/zend
+#
+#    rm -f /etc/my.cnf
+#    rm -f /etc/init.d/nginx
+#    rm -f /etc/init.d/${DB_Name}
+#    rm -f /etc/init.d/php-fpm
+#    rm -f /bin/lnmp
     echo "LNMP Uninstall completed."
 }
 
