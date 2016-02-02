@@ -35,3 +35,10 @@ centos
 
 firebug下载失败：打开 选项→高级→证书 下面有个查询OCSP...省略 前面的勾勾去掉再下载就好了~~
 下载好后记得改回来哦
+win10
+    http://www.windows510.com/xiazai/win10/7034_1.html
+    专业版用户请依次输入：
+    slmgr /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX slmgr /skms kms.xspace.in slmgr /ato
+
+    企业版用户请依次输入：
+    slmgr /ipk NPPR9-FWDCX-D2C8J-H872K-2YT43 slmgr /skms kms.xspace.in slmgr /ato
